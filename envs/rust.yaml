@@ -1,0 +1,6 @@
+channels:
+  - conda-forge
+dependencies:
+  - rust=1.74
+  - git=2.43
+  - c-compiler

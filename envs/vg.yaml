@@ -1,0 +1,8 @@
+name: vg-sm
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - vg
+  - odgi
+  - pggb

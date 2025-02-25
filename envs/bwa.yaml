@@ -1,0 +1,7 @@
+name: bwa-sm
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bwa
+  - samtools

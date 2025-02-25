@@ -1,0 +1,6 @@
+name: seqtk-sm
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - seqtk

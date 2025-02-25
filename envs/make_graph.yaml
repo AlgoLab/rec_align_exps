@@ -1,0 +1,7 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - seqwish=0.7.10
+  - pggb
+  - samtools

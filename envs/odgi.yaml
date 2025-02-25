@@ -1,0 +1,5 @@
+name: odgi-sm
+channels:
+  - bioconda
+dependencies:
+  - odgi=0.7.3
