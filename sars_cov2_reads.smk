@@ -64,7 +64,7 @@ rule generate_rec_reads:
         "output/sars-cov-2/sim_rec/sd_00{rec_haplo}.fastq",
     shell:
         """
-        {input.pbsim} --strategy wgs --method qshmm --qshmm bin/QSHMM-ONT-HQ.model --length-min 25000 --length-max 28000 --length-mean 26500  --accuracy-mean .95 --hp-del-bias 10 --depth 100 --genome {input.haplos} --prefix output/sars-cov-2/sim_rec/sd --difference-ratio 2:1:1
+        {input.pbsim} --strategy wgs --method qshmm --qshmm bin/QSHMM-ONT-HQ.model --length-min 25000 --length-max 28000 --length-mean 26500  --accuracy-mean .99 --hp-del-bias 10 --depth 100 --genome {input.haplos} --prefix output/sars-cov-2/sim_rec/sd --difference-ratio 2:1:1
         """
 
 rule filter_reads:

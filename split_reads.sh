@@ -2,7 +2,7 @@
 
 # Define the genes and error levels
 GENES=$(cat genes_HLA_full.txt)
-ERRORS=("0" "3" "5")
+ERRORS=("0" "1" "3" "5")
 RECS=("0" "1" "2")
 
 # Iterate over each gene and error level

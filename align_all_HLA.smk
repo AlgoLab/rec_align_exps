@@ -4,7 +4,7 @@ genes = []
 with open("genes_HLA_full.txt", "r") as f:
     genes = [gene.strip() for gene in f.readlines()]
 
-error_levels = ["0", "3", "5"]
+error_levels = ["0", "1", "3", "5"]
 recs= ["0", "1", "2"]
 
 split_read_files = []
@@ -39,7 +39,7 @@ rule all:
         "bin/recgraph",
         "bin/minigraph",
         expand("output/HLA/{mode}/{read_path}.gaf",
-                mode=["ga", "ra_c", "ra_s","ra_f","mc", "mg"], 
+                mode=["ga", "ra_f","mc", "mg"], 
                 read_path=split_read_files
         ),
         

@@ -28,7 +28,7 @@ In this experiment, we build graph using `pggb` using the haplotypes in `data/sa
 
 ```bash
 # Prepare pbsim3 and simulates the reads
-snakemake -s sars_cov2_reads_graphs.smk -c 1
+snakemake -s sars_cov2_reads.smk -c 1
 
 # Align the reads
 snakemake -s sars_cov2_align.smk -c 4

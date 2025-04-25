@@ -19,7 +19,6 @@ do
     seq_url="${seqs_dir}${gene_name_trimmed}.fa"
     directory="$gene_name_trimmed"
     mkdir -p "output/HLA/genes/$directory"
-    mkdir -p "output/HLA/genes/$directory/0"
     curl -o "output/HLA/genes/$directory/graph.gfa" "$graph_url"
-    curl -o "output/HLA/genes/$directory/0/reads_0.fa" "$seq_url"
+    curl -o "output/HLA/genes/$directory/haps.fa" "$seq_url"
 done < "$input_file"
