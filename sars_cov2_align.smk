@@ -150,7 +150,7 @@ rule run_recgraph_a_star_r:
     output:
         "output/sars-cov-2/rec/ra/{read_file}.gaf"
     shell:
-        "/usr/bin/time -v {input.rg} -q {input.fa} -g {input.gfa} -s 6 -r 1 -k 1 -m -e fast > {output} 2> {log}"
+        "/usr/bin/time -v {input.rg} -q {input.fa} -g {input.gfa} -s 6 -r 2 -k 1 -m -e fast > {output} 2> {log}"
 
 rule run_minichain_r:
     input:

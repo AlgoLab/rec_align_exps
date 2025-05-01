@@ -21,7 +21,6 @@ for gene in genes:
 genes_short = []
 with open("genes_HLA_short.txt", "r") as f:
     genes_short = [gene.strip() for gene in f.readlines()]
-
 split_read_files_short = []
 for gene in genes_short:
     for rec in recs:
