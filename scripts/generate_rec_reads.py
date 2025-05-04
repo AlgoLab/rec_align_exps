@@ -177,6 +177,7 @@ def process_gfa_file(input_file, rec_num, max_reads=None):
     print_reads(reads)
 
 if __name__ == "__main__":
+    random.seed(1234)
     if len(sys.argv) < 2:
         print("Usage: python script.py <input_gfa_file> [max_reads]")
         sys.exit(1)

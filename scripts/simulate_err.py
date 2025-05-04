@@ -59,7 +59,7 @@ if __name__ == "__main__":
     error_rate = float(sys.argv[2]) 
     cov = int(sys.argv[3]) 
     reads = get_reads(input_file)
-    
+    random.seed(1234)  
     for read_id, sequence in reads.items():
         for _ in range(cov):
             modified_sequence, cigar_line, ed = add_err(sequence, error_rate)

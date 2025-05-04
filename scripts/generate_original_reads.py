@@ -28,6 +28,7 @@ if __name__ == "__main__":
                         reads[len(reads) + 1] = sequence
                     else:
                         break
-    
+        else:
+            reads = dict(list(reads.items())[:total_reads])
     for read_id, sequence in reads.items():
         print(f">{read_id}\n{sequence}")

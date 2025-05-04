@@ -4,7 +4,7 @@ genes = []
 with open("genes_HLA_full.txt", "r") as f:
     genes = [gene.strip() for gene in f.readlines()]
 
-error_levels = ["0", "1", "3", "5"]
+error_levels = ["1", "3", "5"]
 recs= ["0", "1", "2"]
 
 split_read_files = []
@@ -37,11 +37,12 @@ rule all:
         "bin/minichain",
         "bin/recgraph",
         "bin/minigraph",
-        expand("output/HLA/{mode}/{read_path}.gaf",
-                mode=["ga", "ra_f","mc", "mg"], 
-                read_path=split_read_files
-        ),
+        # expand("output/HLA/{mode}/{read_path}.gaf",
+        #         mode=["ga", "ra_f","mc", "mg", "ra_vk"], 
+        #         read_path=split_read_files
+        # ),
         
+        # uncomment the following line to run RecGraph, really slow
         expand("output/HLA/rg/{read_path}.gaf",
                 read_path=split_read_files_short
         )
@@ -156,6 +157,18 @@ rule run_recgraph_a_star_fast:
     shell:
         "/usr/bin/time -v {input.rg} -q {input.fa} -g {input.gfa} -s 14 -r 4 -k 2 -e fast> {output} 2> {log}"
 
+rule run_recgraph_a_star_var_k:
+    input:
+        fa="output/HLA/genes/{gene}/{rec}/reads_{err}_split/{read_file}.fa",
+        gfa="output/HLA/genes/{gene}/graph.gfa",
+        rg = "bin/recgraph_a_star"
+    
+    log:
+        "output/HLA/ra_vk/{gene}/{rec}/reads_{err}_split/{read_file}.log"
+    output:
+        "output/HLA/ra_vk/{gene}/{rec}/reads_{err}_split/{read_file}.gaf"
+    shell:
+        "/usr/bin/time -v {input.rg} -q {input.fa} -g {input.gfa} -s 14 -k {wildcards.rec} -r 4 -e fast> {output} 2> {log}"
 rule run_minichain:
     input:
         minichain="bin/minichain",
